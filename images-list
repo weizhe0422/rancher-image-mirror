@@ -115,12 +115,15 @@ gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provide
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.21.3
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.22.5
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.22.6
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.22.7
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.0
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.0-alpha.1
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.1
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.3
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.0
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.1
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.2
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.3
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.25.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
@@ -214,6 +217,7 @@ grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
+idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 istio/citadel rancher/mirrored-istio-citadel 1.5.9
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/coredns-plugin rancher/mirrored-istio-coredns-plugin 0.2-istio-1.1
@@ -359,6 +363,7 @@ jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.4.0
 jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.4.0
+jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.8.0
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.6
@@ -618,6 +623,7 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.1
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.2
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.3
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.6
+messagebird/sachet rancher/mirrored-messagebird-sachet 0.3.1
 minio/mc rancher/mirrored-minio-mc RELEASE.2020-07-13T18-09-56Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
@@ -688,6 +694,7 @@ quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.21.5
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.22.0
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.22.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.22.2
+quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.22.5
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.23.0
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.23.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.23.3
@@ -714,6 +721,7 @@ quay.io/calico/cni rancher/mirrored-calico-cni v3.21.5
 quay.io/calico/cni rancher/mirrored-calico-cni v3.22.0
 quay.io/calico/cni rancher/mirrored-calico-cni v3.22.1
 quay.io/calico/cni rancher/mirrored-calico-cni v3.22.2
+quay.io/calico/cni rancher/mirrored-calico-cni v3.22.5
 quay.io/calico/cni rancher/mirrored-calico-cni v3.23.0
 quay.io/calico/cni rancher/mirrored-calico-cni v3.23.1
 quay.io/calico/cni rancher/mirrored-calico-cni v3.23.3
@@ -742,6 +750,7 @@ quay.io/calico/ctl rancher/mirrored-calico-ctl v3.21.5
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.22.0
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.22.1
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.22.2
+quay.io/calico/ctl rancher/mirrored-calico-ctl v3.22.5
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.23.0
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.23.1
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.23.3
@@ -768,6 +777,7 @@ quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.21.5
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.22.0
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.22.1
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.22.2
+quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.22.5
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.23.0
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.23.1
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.23.3
@@ -794,6 +804,7 @@ quay.io/calico/node rancher/mirrored-calico-node v3.21.5
 quay.io/calico/node rancher/mirrored-calico-node v3.22.0
 quay.io/calico/node rancher/mirrored-calico-node v3.22.1
 quay.io/calico/node rancher/mirrored-calico-node v3.22.2
+quay.io/calico/node rancher/mirrored-calico-node v3.22.5
 quay.io/calico/node rancher/mirrored-calico-node v3.23.0
 quay.io/calico/node rancher/mirrored-calico-node v3.23.1
 quay.io/calico/node rancher/mirrored-calico-node v3.23.3
@@ -820,6 +831,7 @@ quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.22.0
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.22.1
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.22.2
+quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.22.5
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.23.0
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.23.1
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.23.3
@@ -837,6 +849,7 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.21.5
 quay.io/calico/typha rancher/mirrored-calico-typha v3.22.0
 quay.io/calico/typha rancher/mirrored-calico-typha v3.22.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.22.2
+quay.io/calico/typha rancher/mirrored-calico-typha v3.22.5
 quay.io/calico/typha rancher/mirrored-calico-typha v3.23.0
 quay.io/calico/typha rancher/mirrored-calico-typha v3.23.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.23.3
@@ -1005,6 +1018,7 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.0
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.3
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.4
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.8
+quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.13
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.27.0
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.27.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.27.12
