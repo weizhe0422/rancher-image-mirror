@@ -1,6 +1,13 @@
 #!/bin/bash
 
 set -uo pipefail
+
+if [ ! -z "${DOCKER_USERNAME:-}" ] && [ ! -z "${DOCKER_PASSWORD:-}" ]; then
+  echo "Logging in to ${DOCKER_REGISTRY:-docker.io} as ${DOCKER_USERNAME}"
+  docker login ${DOCKER_REGISTRY:-docker.io} --username=${DOCKER_USERNAME} --password-stdin <<< ${DOCKER_PASSWORD}
+  export DOCKER_TOKEN=$(curl -s -d @- -X POST -H "Content-Type: application/json" https://hub.docker.com/v2/users/login/ <<< '{"username": "'${DOCKER_USERNAME}'", "password": "'${DOCKER_PASSWORD}'"}' | jq -r '.token')
+fi
+
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
 ARCH_LIST="amd64 arm64 arm s390x"
@@ -94,18 +101,24 @@ function mirror_image {
 
   # Grab raw manifest or manifest list and extract schema info
   MANIFEST=$(skopeo inspect docker://${SOURCE}:${TAG} --raw)
+  # Return if it doesn't exist
+  if [ $? -ne 0 ]; then
+    echo "${SOURCE}:${TAG} does not exist"
+    return 1
+  fi
   SCHEMAVERSION=$(jq -r '.schemaVersion' <<< ${MANIFEST})
   MEDIATYPE=$(jq -r '.mediaType' <<< ${MANIFEST})
   SOURCES=()
   DIGESTS=()
  
+  echo "${SOURCE}:${TAG} is schemaVersion ${SCHEMAVERSION}"
   # Most everything should use a v2 schema, but some old images (on quay.io mostly) are still on v1
   if [ "${SCHEMAVERSION}" == "2" ]; then
+    echo "${SOURCE}:${TAG} is mediaType ${MEDIATYPE}"
 
     # Handle manifest lists by copying all the architectures (and their variants) out to individual suffixed tags in the destination,
     # then recombining them into a single manifest list on the bare tags.
-    if [ "${MEDIATYPE}" == "application/vnd.docker.distribution.manifest.list.v2+json" ]; then
-      echo "${SOURCE}:${TAG} is manifest.list.v2"
+    if [ "${MEDIATYPE}" == "application/vnd.docker.distribution.manifest.list.v2+json" ] || [ "${MEDIATYPE}" == "application/vnd.oci.image.index.v1+json" ]; then
       for ARCH in ${ARCH_LIST}; do
         VARIANT_INDEX="0"
         DIGEST_VARIANT_LIST=$(jq -r --arg ARCH "${ARCH}" \
@@ -141,7 +154,6 @@ function mirror_image {
 
     # Standalone manifests don't include architecture info, we have to get that from the image config
     elif [ "${MEDIATYPE}" == "application/vnd.docker.distribution.manifest.v2+json" ]; then
-      echo "${SOURCE}:${TAG} is manifest.v2"
       CONFIG=$(skopeo inspect docker://${SOURCE}:${TAG} --config --raw)
       ARCH=$(jq -r '.architecture' <<< ${CONFIG})
       DIGEST=$(jq -r '.config.digest' <<< ${MANIFEST})
@@ -151,7 +163,7 @@ function mirror_image {
         DIGESTS+=("${DIGEST}")
       fi
     else 
-      echo "${SOURCE}:${TAG} has unknown mediaType ${MEDIATYPE}"
+      echo "${SOURCE}:${TAG} has unknown mediaType (${MEDIATYPE})"
       return 1
     fi
 
@@ -161,7 +173,6 @@ function mirror_image {
   # what the resulting digest will be when it is upconverted. The image itself will remain unchanged,
   # but Docker Hub will show an updated `Last pushed` timestamp for upconverted v1 manifests.
   elif [ "${SCHEMAVERSION}" == "1" ]; then
-    echo "${SOURCE}:${TAG} is manifest.v1"
     ARCH=$(jq -r '.architecture' <<< ${MANIFEST})
     if grep -wqF ${ARCH} <<< ${ARCH_LIST}; then
       copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}" "--format=v2s2"
@@ -195,22 +206,21 @@ function mirror_image {
   fi
 }
 
-# Figure out if we should read input from a file or stdin
-# If we're given a file, verify that it exists
-if [ -n "${1:-}" ]; then
-  INFILE="${1}"
-  if [ ! -f "${INFILE}" ]; then
-    echo "File ${INFILE} does not exist!"
+# Read input from file
+if [ -n "${IMAGES_FILE:-}" ]; then
+  if [ ! -f "${IMAGES_FILE}" ]; then
+    echo "File ${IMAGES_FILE} does not exist!"
     exit 1
   fi
 else
-  INFILE="/dev/stdin"
+  echo "Environment variable ${IMAGES_FILE} is not set!"
+  exit 1
 fi
 
-echo "Reading SOURCE DESTINATION TAG from ${INFILE}"
+echo "Reading SOURCE DESTINATION TAG from ${IMAGES_FILE}"
 while IFS= read -r LINE; do
   echo -e "\nLine: ${LINE}"
   if grep -P '^(?!\s*(#|//))\S+\s+\S+\s+\S+' <<< ${LINE}; then
     mirror_image ${LINE}
   fi
-done < "${INFILE}"
+done < "${IMAGES_FILE}"
