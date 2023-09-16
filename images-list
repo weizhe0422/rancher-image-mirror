@@ -1127,6 +1127,7 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.27.12
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.28.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.28.5
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.29.0
+quay.io/tigera/operator rancher/mirrored-calico-operator v1.29.6
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.30.4
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.7.1
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.1
